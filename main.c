@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-int main(){
+int main() {
+  void *ptr;
 
-  puts("Hello world!");
-
+  printf("sizeof(void*) = %d\n", sizeof(ptr));
+  
   return 0;
 }

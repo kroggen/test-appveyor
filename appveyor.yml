@@ -3,12 +3,10 @@ version: 0.1.{build}
 environment:
   matrix:
     - COMPILER: mingw
-      GENERATOR: MinGW Makefiles
       PLATFORM: Win32
       MINGW_PATH: C:\MinGW\bin
 
     - COMPILER: mingw-w64
-      GENERATOR: MinGW Makefiles
       PLATFORM: x64
       MINGW_PATH: C:\mingw-w64\x86_64-7.3.0-posix-seh-rt_v5-rev0\mingw64\bin
 
@@ -19,4 +17,6 @@ install:
 
 build_script:
   - mingw32-make
+
+test_script:
   - main

@@ -5,15 +5,18 @@ environment:
     - COMPILER: mingw
       GENERATOR: MinGW Makefiles
       PLATFORM: Win32
+      MINGW_PATH: C:\MinGW\bin
 
     - COMPILER: mingw-w64
       GENERATOR: MinGW Makefiles
       PLATFORM: x64
+      MINGW_PATH: C:\mingw-w64\x86_64-7.3.0-posix-seh-rt_v5-rev0\mingw64\bin
 
 install:
-  - if "%COMPILER%"=="mingw" set PATH=C:\MinGW\bin;%PATH%
-  - if "%COMPILER%"=="mingw-w64" set PATH=C:\MinGW\bin;%PATH%
+  #- if "%COMPILER%"=="mingw" set PATH=C:\MinGW\bin;%PATH%
+  #- if "%COMPILER%"=="mingw-w64" set PATH=C:\MinGW\bin;%PATH%
+  - set PATH=%MINGW_PATH%;%PATH%
 
 build_script:
-  - make
+  - mingw32-make
   - main

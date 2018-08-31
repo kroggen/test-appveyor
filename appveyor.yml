@@ -1,0 +1,19 @@
+version: 0.1.{build}
+
+environment:
+  matrix:
+    - COMPILER: mingw
+      GENERATOR: MinGW Makefiles
+      PLATFORM: Win32
+
+    - COMPILER: mingw-w64
+      GENERATOR: MinGW Makefiles
+      PLATFORM: x64
+
+install:
+  - if "%COMPILER%"=="mingw" set PATH=C:\MinGW\bin;%PATH%
+  - if "%COMPILER%"=="mingw-w64" set PATH=C:\MinGW\bin;%PATH%
+
+build_script:
+  - make
+  - main

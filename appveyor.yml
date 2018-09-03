@@ -14,10 +14,8 @@ install:
   #- if "%COMPILER%"=="mingw" set PATH=C:\MinGW\bin;%PATH%
   #- if "%COMPILER%"=="mingw-w64" set PATH=C:\MinGW\bin;%PATH%
   - set PATH=%MINGW_PATH%;%PATH%
-  - git --version
   - git clone --depth=1 https://github.com/kroggen/lmdb
   - cd lmdb\libraries\liblmdb
-  - if "%COMPILER%"=="mingw" powershell -Command "(Get-Content mdb.c) -replace '\/\* We use native NT APIs','typedef LONG NTSTATUS; /* We use native NT APIs' | Set-Content mdb.c"
   - mingw32-make
   - dir
   - copy mtest.c ..\..\..

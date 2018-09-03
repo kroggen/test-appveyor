@@ -15,8 +15,10 @@ install:
   #- if "%COMPILER%"=="mingw-w64" set PATH=C:\MinGW\bin;%PATH%
   - set PATH=%MINGW_PATH%;%PATH%
   - git --version
-  - git clone https://github.com/kroggen/lmdb
+  - git clone --depth=1 https://github.com/kroggen/lmdb
   - cd lmdb\libraries\liblmdb
+  - if "%COMPILER%"=="mingw" powershell -Command "@('typedef LONG NTSTATUS;') + (Get-Content mdb.c) | Set-Content mdb.c"
+  - if "%COMPILER%"=="mingw" powershell -Command "Get-Content mdb.c -TotalCount 5"
   - mingw32-make
   - dir
   - cd ..\..\..

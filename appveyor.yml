@@ -21,11 +21,15 @@ install:
   - if "%COMPILER%"=="mingw" powershell -Command "Get-Content mdb.c -TotalCount 46"
   - mingw32-make
   - dir
+  - copy mtest.c ..\..\..
+  - copy lmdb.dll ..\..\..
   - cd ..\..\..
 
 build_script:
   - mingw32-make
+  - gcc mtest.c -o mtest.exe -Ilmdb\libraries\liblmdb -Llmdb\libraries\liblmdb -llmdb
   - dir
 
 test_script:
   - main
+  - mtest

@@ -14,9 +14,16 @@ install:
   #- if "%COMPILER%"=="mingw" set PATH=C:\MinGW\bin;%PATH%
   #- if "%COMPILER%"=="mingw-w64" set PATH=C:\MinGW\bin;%PATH%
   - set PATH=%MINGW_PATH%;%PATH%
+  - git --version
+  - git clone https://github.com/kroggen/lmdb
+  - cd lmdb\libraries\liblmdb
+  - make
+  - dir
+  - cd ..\..\..
 
 build_script:
   - mingw32-make
+  - dir
 
 test_script:
   - main

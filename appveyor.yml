@@ -17,7 +17,7 @@ install:
   - git --version
   - git clone --depth=1 https://github.com/kroggen/lmdb
   - cd lmdb\libraries\liblmdb
-  - if "%COMPILER%"=="mingw" powershell -Command "(Get-Content mdb.c) -replace '#include <windows.h>','#include <windows.h>`r`ntypedef LONG NTSTATUS;' | Set-Content mdb.c"
+  - if "%COMPILER%"=="mingw" powershell -Command '(Get-Content mdb.c) -replace "#include <windows.h>","#include <windows.h>`r`ntypedef LONG NTSTATUS;" | Set-Content mdb.c'
   - if "%COMPILER%"=="mingw" powershell -Command "Get-Content mdb.c -TotalCount 46"
   - mingw32-make
   - dir

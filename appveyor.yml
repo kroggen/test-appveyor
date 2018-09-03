@@ -18,7 +18,6 @@ install:
   - git clone --depth=1 https://github.com/kroggen/lmdb
   - cd lmdb\libraries\liblmdb
   - if "%COMPILER%"=="mingw" powershell -Command "(Get-Content mdb.c) -replace '\/\* We use native NT APIs','typedef LONG NTSTATUS; /* We use native NT APIs' | Set-Content mdb.c"
-  - if "%COMPILER%"=="mingw" powershell -Command "Get-Content mdb.c -TotalCount 46"
   - mingw32-make
   - dir
   - copy mtest.c ..\..\..
@@ -32,4 +31,5 @@ build_script:
 
 test_script:
   - main
+  - mkdir testdb
   - mtest

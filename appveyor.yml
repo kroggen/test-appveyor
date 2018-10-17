@@ -21,7 +21,6 @@ install:
   - copy mtest.c ..\..\..
   - copy lmdb.dll ..\..\..
   - cd ..\..\..
-  - mkdir temp && cd temp && easy_install lmdb
 
 build_script:
   - mingw32-make
@@ -32,3 +31,4 @@ test_script:
   - main
   - mkdir testdb
   - mtest
+  - mingw32-make test

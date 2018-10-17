@@ -3,7 +3,7 @@
 int main() {
   void *ptr;
 
-  printf("sizeof(void*) = %d\n", sizeof(ptr));
-  
+  printf("sizeof(void*) = %lu\n", sizeof(ptr));
+
   return 0;
 }

@@ -10,5 +10,9 @@ $(EXEC): $(SHORT).o
 $(SHORT).o: $(SHORT).c
 	gcc $(CFLAGS) -c $<
 
+test:
+	easy_install lmdb
+	python test-lmdb.py
+
 clean:
 	rm -f *.o $(EXEC)

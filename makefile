@@ -11,7 +11,7 @@ $(SHORT).o: $(SHORT).c
 	gcc $(CFLAGS) -c $<
 
 test:
-	mkdir temp && cd temp && easy_install lmdb
+	python -mpip install lmdb
 	python test-lmdb.py
 
 clean:
